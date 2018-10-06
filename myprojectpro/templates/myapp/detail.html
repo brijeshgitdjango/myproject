@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }} | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<center><h1>{{ article.title }}</h1></center>
+<p>{{ article.content }}</p>
+<p>{{ article.created_on }}</p>
+<p>{{ article.last_updated }}</p>
+<p>Created by : <b>{{ article.author }}</b></p>
+
+<!-- static url -->
+<a href="/articles/list/">Go Back(static url)</a>
+<br>
+<!-- dynamic url -->
+<a href="{% url 'myapp:list' %}">Go Back(dynamic url)</a>
+
+{% endblock content %}

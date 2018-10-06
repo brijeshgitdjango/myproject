@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Article list | {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+{% if list %} 
+<ul class="list-unstyled">
+	
+	{% for i in list %}
+		<li>
+			<a href="{% url 'myapp:detail' id=i.id %}"><h4>{{ i.title }}</h4></a>
+			<p>Created by : {{ i.author }}</p>			
+		</li>
+	{% endfor %}
+</ul>
+	
+{% else %}
+	<h1>No Article added</h1>
+{% endif %}
+
+{% endblock content %}
